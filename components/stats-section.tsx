@@ -55,7 +55,7 @@ function AnimatedCounter({ end, label }: { end: number, label: string }) {
 
 export default function StatsSection() {
   return (
-    <section className="bg-zinc-100 py-10 px-4 md:px-6">
+    <section className="bg-zinc-100 py-10 px-4 lg:px-6">
       <div className="relative py-16 max-w-screen-2xl mx-auto lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           {/* Left Section */}

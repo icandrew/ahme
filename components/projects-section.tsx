@@ -25,7 +25,7 @@ export default function ProjectsSection() {
     <section className="py-16 flex flex-col items-center gap-10 max-w-screen-2xl mx-auto lg:px-10">
       {/* Header Section */}
       <div className="h-[190px] flex flex-col items-center gap-6">
-        <div className="flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center gap-4">
           <div className="flex flex-col items-center gap-1.5">
             <p className="text-sm font-medium text-muted-foreground">Projects</p>
             <h2 className="text-center max-w-xl text-4xl font-black tracking-tight sm:text-4xl md:text-4xl">
@@ -41,20 +41,19 @@ export default function ProjectsSection() {
       </div>
 
       {/* Map Section */}
-      <div className="flex flex-col items-start">
-        <div className="w-full flex flex-col items-center gap-4 mb-10">
-          <div className="relative w-full aspect-[1280/515]">
-            <Image
-              src="/world-map.png"
-              alt="World map"
-              fill
-              className="object-cover"
-            />
-          </div>
+      <div className="w-full flex flex-col items-center gap-4 mb-10">
+        <div className="relative w-full aspect-[1280/515]">
+          <Image
+            src="/world-map.png"
+            alt="World map"
+            fill
+            className="object-cover"
+          />
         </div>
+      </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-10">
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col justify-center items-start gap-5">
             <Card className="w-full h-[400px] border-0 shadow-none transition-transform transform hover:scale-105 hover:shadow-lg">
@@ -84,8 +83,6 @@ export default function ProjectsSection() {
           </div>
         ))}
       </div>
-      </div>
     </section>
   )
 }
-
