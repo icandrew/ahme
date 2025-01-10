@@ -41,14 +41,16 @@ export default function ProjectsSection() {
       </div>
 
       {/* Map Section */}
-      <div className="w-full flex flex-col items-center gap-4 mb-10">
-        <div className="relative w-full aspect-[1280/515]">
-          <Image
-            src="/world-map.png"
-            alt="World map"
-            fill
-            className="object-cover"
-          />
+      <div className="relative w-full">
+        <div className="w-[60%] mx-auto">
+          <div className="relative aspect-[1280/515]">
+            <Image
+              src="/world-map.png"
+              alt="World map"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
 
