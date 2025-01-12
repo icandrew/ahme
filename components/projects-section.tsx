@@ -22,7 +22,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="py-16 flex flex-col items-center gap-10 max-w-screen-2xl mx-auto lg:px-10">
+    <section className="py-16 flex flex-col items-center gap-10 max-w-screen-2xl mx-auto lg:px-10 px-4">
       {/* Header Section */}
       <div className="h-[190px] flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-4">
@@ -32,8 +32,8 @@ export default function ProjectsSection() {
               Trusted by Leading Multinational Companies Worldwide
             </h2>
           </div>
-          <button className="px-3 py-2 bg-[#E72B2D] rounded overflow-hidden flex justify-center items-center">
-            <span className="px-1 text-white text-sm font-medium leading-6 font-roboto">
+          <button className="px-3 py-2 bg-primary rounded overflow-hidden flex justify-center items-center">
+            <span className="px-1 text-white text-sm font-medium">
               View all projects
             </span>
           </button>
@@ -41,8 +41,8 @@ export default function ProjectsSection() {
       </div>
 
       {/* Map Section */}
-      <div className="relative w-full">
-        <div className="w-[60%] mx-auto">
+      <div className="relative w-full hidden md:block">
+        <div className="w-[70%] mx-auto">
           <div className="relative aspect-[1280/515]">
             <Image
               src="/world-map.png"
@@ -55,7 +55,7 @@ export default function ProjectsSection() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-10 px-4">
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col justify-center items-start gap-5">
             <Card className="w-full h-[400px] border-0 shadow-none transition-transform transform hover:scale-105 hover:shadow-lg">

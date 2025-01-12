@@ -59,7 +59,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="relative py-16 flex flex-col justify-center items-center overflow-hidden">
+    <div className="relative py-16 flex flex-col justify-center items-center overflow-hidden px-4">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -76,7 +76,7 @@ export default function ContactForm() {
       <div className="relative z-10 w-full max-w-screen-2xl p-10 bg-white/95 backdrop-blur-sm rounded-md flex flex-col lg:flex-row justify-start items-start gap-16">
         <div className="w-full lg:w-[448px] flex flex-col justify-start items-start gap-4">
           <h1 className="text-primary text-4xl font-black font-['Lato'] leading-10">
-            Ready to Assist with<br/>Your Project
+            Ready to Assist with Your Project
           </h1>
           <p className="text-muted-foreground text-base font-['Roboto'] leading-7">
             Our expert team is here to provide tailored solutions for your projects unique needs.
