@@ -179,8 +179,8 @@ export default function Navigation() {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-            <nav className="flex flex-col h-full">
+          <SheetContent side="left" className="w-[300px] sm:w-[400px] flex flex-col">
+            <nav className="flex flex-col h-full overflow-y-auto pb-20">
               <Link href="/" className="py-4 text-lg font-semibold" onClick={() => setIsOpen(false)}>
                 Home
               </Link>
@@ -204,7 +204,7 @@ export default function Navigation() {
                 </AccordionItem>
                 <AccordionItem value="products">
                   <AccordionTrigger>Products</AccordionTrigger>
-                  <AccordionContent>
+                  <AccordionContent className="max-h-[50vh] overflow-y-auto">
                     <Link href="/products/nitrogen-generation" className="block py-2" onClick={() => setIsOpen(false)}>
                       Nitrogen Generation Unit
                     </Link>
@@ -261,7 +261,7 @@ export default function Navigation() {
                     <Link href="/solutions/solution2" className="block py-2" onClick={() => setIsOpen(false)}>
                       Testing &amp; Certifications
                     </Link>
-                    <Link href="/solutions/solution2" className="block py-2" onClick={() => setIsOpen(false)}>
+                    <Link href="/solutions/solution3" className="block py-2" onClick={() => setIsOpen(false)}>
                       Preventative Maintenance &amp; Servicing
                     </Link>
                   </AccordionContent>
