@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Phone } from 'lucide-react';
+import { Phone, Menu } from 'lucide-react'
 
 import {
   NavigationMenu,
@@ -14,14 +14,27 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export default function Navigation() {
+  const [isOpen, setIsOpen] = React.useState(false)
+
   return (
     <header className="w-full bg-primary relative">
       <div className="max-w-screen-2xl mx-auto flex h-20 items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="w-48 md:w-56 lg:w-64">
-          <Image 
+          <Image
             src="/logo.svg"
             alt="Access Hire Middle East Logo"
             width={192}
@@ -30,7 +43,7 @@ export default function Navigation() {
           />
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="gap-1">
             <NavigationMenuItem>
@@ -44,7 +57,7 @@ export default function Navigation() {
               <NavigationMenuTrigger className="group h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-sm text-white hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                 About Us
               </NavigationMenuTrigger>
-              <NavigationMenuContent  className="absolute left-1/2 transform -translate-x-1/2 w-[var(--radix-navigation-menu-trigger-width)] min-w-[200px]">
+              <NavigationMenuContent className="absolute left-1/2 transform -translate-x-1/2 w-[var(--radix-navigation-menu-trigger-width)] min-w-[200px]">
                 <div className="w-48 p-2">
                   <Link href="/our-team" className="block p-2 hover:bg-accent">
                     Our Team
@@ -157,19 +170,120 @@ export default function Navigation() {
             +971 4 884 1118
           </Link>
         </Button>
-        {/* <Button variant="ghost" size="lg" className="hidden lg:flex">
-          <Link href="tel:+97148841118" className="flex items-center gap-2">
-            +971 4 884 1118
-          </Link>
-        </Button> */}
 
-        {/* Mobile Menu Button */}
-        <Button variant="ghost" size="icon" className="text-white lg:hidden">
-          <span className="sr-only">Open main menu</span>
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </Button>
+        {/* Mobile Menu */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="text-white lg:hidden">
+              <span className="sr-only">Open main menu</span>
+              <Menu className="h-6 w-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <nav className="flex flex-col h-full">
+              <Link href="/" className="py-4 text-lg font-semibold" onClick={() => setIsOpen(false)}>
+                Home
+              </Link>
+              <Accordion type="single" collapsible>
+                <AccordionItem value="about">
+                  <AccordionTrigger>About Us</AccordionTrigger>
+                  <AccordionContent>
+                    <Link href="/our-team" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Our Team
+                    </Link>
+                    <Link href="/about" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Our Values
+                    </Link>
+                    <Link href="/about" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Safety
+                    </Link>
+                    <Link href="/team" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Certifications
+                    </Link>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="products">
+                  <AccordionTrigger>Products</AccordionTrigger>
+                  <AccordionContent>
+                    <Link href="/products/nitrogen-generation" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Nitrogen Generation Unit
+                    </Link>
+                    <Link href="/products/air-compressors" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Air Compressors
+                    </Link>
+                    <Link href="/products/air-nitrogen-boosters" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Air & Nitrogen Boosters
+                    </Link>
+                    <Link href="/products/desiccant-air-dryers" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Desiccant Air Dryers
+                    </Link>
+                    <Link href="/products/fuel-tanks" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Fuel Tanks
+                    </Link>
+                    <Link href="/products/generators" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Generators
+                    </Link>
+                    <Link href="/products/lighting-towers" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Lighting Towers
+                    </Link>
+                    <Link href="/products/welding" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Welding
+                    </Link>
+                    <Link href="/products/dnv-frames" className="block py-2" onClick={() => setIsOpen(false)}>
+                      DNV 2.7-1 Frames
+                    </Link>
+                    <Link href="/products/double-stacker" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Double Stacker & Walkway
+                    </Link>
+                    <Link href="/products/hvac" className="block py-2" onClick={() => setIsOpen(false)}>
+                      HVAC
+                    </Link>
+                    <Link href="/products/earth-moving" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Earth Moving
+                    </Link>
+                    <Link href="/products/material-handling" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Material Handling
+                    </Link>
+                    <Link href="/products/elevated-platforms" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Elevated Work Platforms
+                    </Link>
+                    <Link href="/products/ancillaries" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Ancillaries
+                    </Link>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="solutions">
+                  <AccordionTrigger>Solutions</AccordionTrigger>
+                  <AccordionContent>
+                    <Link href="/solutions/solution1" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Project Support Services
+                    </Link>
+                    <Link href="/solutions/solution2" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Testing &amp; Certifications
+                    </Link>
+                    <Link href="/solutions/solution2" className="block py-2" onClick={() => setIsOpen(false)}>
+                      Preventative Maintenance &amp; Servicing
+                    </Link>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Link href="/projects" className="py-4 text-lg font-semibold" onClick={() => setIsOpen(false)}>
+                Projects
+              </Link>
+              <Link href="/contact" className="py-4 text-lg font-semibold" onClick={() => setIsOpen(false)}>
+                Contact Us
+              </Link>
+              <div className="mt-auto pb-4">
+                <Button variant="default" size="lg" className="w-full">
+                  <Link href="tel:+97148841118" className="flex items-center justify-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    +971 4 884 1118
+                  </Link>
+                </Button>
+              </div>
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   )

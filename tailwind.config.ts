@@ -10,39 +10,36 @@ export default {
   theme: {
   	extend: {
   		colors: {
-			zinc: {
-				50: "#fafafa",
-				100: "#f6f6f6",
-				200: "#e4e4e7",
-				300: "#d4d4d8",
-				400: "#a1a1aa",
-				500: "#71717a",
-				600: "#52525b",
-				700: "#3f3f46",
-				800: "#27272a",
-				900: "#18181b",
-				950: "#09090b",
-			},
-
-			accessgroup: {
-				50: "#fafafa",
-				100: "#f6f6f6",
-				200: "#e4e4e7",
-				300: "#d4d4d8",
-				400: "#a1a1aa",
-				500: "#71717a",
-				600: "#52525b",
-				700: "#3f3f46",
-				800: "#27272a",
-				900: "#18181b",
-				950: "#09090b",
-			},
-
-			base: {
-				black: "#000000",
-				white: "#ffffff",
-			},
-
+  			zinc: {
+  				'50': '#fafafa',
+  				'100': '#f6f6f6',
+  				'200': '#e4e4e7',
+  				'300': '#d4d4d8',
+  				'400': '#a1a1aa',
+  				'500': '#71717a',
+  				'600': '#52525b',
+  				'700': '#3f3f46',
+  				'800': '#27272a',
+  				'900': '#18181b',
+  				'950': '#09090b'
+  			},
+  			accessgroup: {
+  				'50': '#fafafa',
+  				'100': '#f6f6f6',
+  				'200': '#e4e4e7',
+  				'300': '#d4d4d8',
+  				'400': '#a1a1aa',
+  				'500': '#71717a',
+  				'600': '#52525b',
+  				'700': '#3f3f46',
+  				'800': '#27272a',
+  				'900': '#18181b',
+  				'950': '#09090b'
+  			},
+  			base: {
+  				black: '#000000',
+  				white: '#ffffff'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -90,29 +87,51 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		maxWidth: {
-  			'none': 'none',
-  			'xs': '20rem',      // 320px
-  			'sm': '24rem',      // 384px
-  			'md': '28rem',      // 448px
-  			'lg': '32rem',      // 512px
-  			'xl': '36rem',      // 576px
-  			'2xl': '42rem',     // 672px
-  			'3xl': '48rem',     // 768px
-  			'4xl': '56rem',     // 896px
-  			'5xl': '64rem',     // 1024px
-  			'6xl': '72rem',     // 1152px
-  			'7xl': '80rem',     // 1280px
-  			'full': '100%',
-  			'min': 'min-content',
-  			'max': 'max-content',
-  			'fit': 'fit-content',
-  			'prose': '65ch',
+  			none: 'none',
+  			xs: '20rem',
+  			sm: '24rem',
+  			md: '28rem',
+  			lg: '32rem',
+  			xl: '36rem',
+  			'2xl': '42rem',
+  			'3xl': '48rem',
+  			'4xl': '56rem',
+  			'5xl': '64rem',
+  			'6xl': '72rem',
+  			'7xl': '80rem',
+  			full: '100%',
+  			min: 'min-content',
+  			max: 'max-content',
+  			fit: 'fit-content',
+  			prose: '65ch',
   			'screen-sm': '640px',
   			'screen-md': '768px',
   			'screen-lg': '1024px',
   			'screen-xl': '1280px',
   			'screen-2xl': '1536px',
-  			'container': '1440px',
+  			container: '1440px'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
