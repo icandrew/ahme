@@ -35,7 +35,7 @@ const partners = [
 
 export default function PartnerShowcase() {
   return (
-    <section className="bg-zinc-100 py-10 px-4 md:px-6" aria-label="Partners logos">
+    <section className="bg-zinc-100 py-10 px-6 md:px-6 lg:px-6" aria-label="Partners logos">
       <div className="relative max-w-screen-2xl mx-auto lg:px-10">
         {/* Flex container to wrap logos, with 2 columns on mobile */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">

@@ -1,44 +1,30 @@
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowUpRight } from 'lucide-react'
+'use client'
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
-const projects = [
-  {
-    title: "Project Support Services",
-    description: "Montes magna ultricies lectus egestas ultricies feugiat commodo tincidunt maecenas felis",
-    image: "/project-1.jpg",
-  },
-  {
-    title: "Testing & Certifications",
-    description: "Montes magna ultricies lectus egestas ultricies feugiat commodo tincidunt maecenas felis",
-    image: "/project-2.jpg",
-  },
-  {
-    title: "Project Support Services",
-    description: "Montes magna ultricies lectus egestas ultricies feugiat commodo tincidunt maecenas felis",
-    image: "/project-3.jpg",
-  },
-]
-
-export default function ProjectsSection() {
+const ProjectsSection = ({ projects = [] }) => {
   return (
-    <section className="py-16 flex flex-col items-center gap-10 max-w-screen-2xl mx-auto lg:px-10 px-4">
+    <section className="py-16 flex flex-col items-center gap-10 max-w-screen-2xl mx-auto px-6 lg:px-6">
       {/* Header Section */}
-      <div className="h-[190px] flex flex-col items-center gap-6">
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center gap-1.5">
-            <p className="text-sm font-medium text-muted-foreground">Projects</p>
-            <h2 className="text-center max-w-xl text-4xl font-black tracking-tight sm:text-4xl md:text-4xl">
-              Trusted by Leading Multinational Companies Worldwide
-            </h2>
-          </div>
-          <button className="px-3 py-2 bg-primary rounded overflow-hidden flex justify-center items-center">
-            <span className="px-1 text-white text-sm font-medium">
-              View all projects
-            </span>
-          </button>
+      <header className="h-fit flex flex-col items-center gap-6 text-center">
+        <div className="flex flex-col items-center gap-1.5">
+          <p className="text-sm font-medium text-muted-foreground">Projects</p>
+          <h2 className="max-w-xl text-4xl font-black tracking-tight sm:text-4xl md:text-4xl">
+            Trusted by Leading Multinational Companies Worldwide
+          </h2>
         </div>
-      </div>
+        <Button
+          variant="default"
+          className="w-fit px-3 py-2 inline-flex justify-center items-center gap-1"
+          size="lg"
+        >
+          <span className="px-1">View all projects</span>
+        </Button>
+                
+      </header>
 
       {/* Map Section */}
       <div className="relative w-full hidden md:block">
@@ -48,19 +34,19 @@ export default function ProjectsSection() {
               src="/world-map.png"
               alt="World map"
               fill
-              className="object-cover"
+              className="object-cover rounded-lg"
             />
           </div>
         </div>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-10 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-10">
         {projects.map((project, index) => (
-          <div key={index} className="flex flex-col justify-center items-start gap-5">
+          <div key={index} className="flex flex-col gap-6 max-w-screen-2xl">
+            {/* Project Card */}
             <Card className="w-full h-[400px] border-0 shadow-none transition-transform transform hover:scale-105 hover:shadow-lg">
-              <CardContent className="p-0 h-full relative">
-                <div className="absolute inset-0 bg-[#D9D9D9] rounded-lg transition-colors duration-300 hover:bg-gray-300" />
+              <CardContent className="relative p-0 h-full">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -70,21 +56,49 @@ export default function ProjectsSection() {
               </CardContent>
             </Card>
 
-            <div className="h-[130px] flex flex-col gap-2.5">
-              <h3 className="text-[#09090B] text-2xl font-black leading-8">
+            {/* Project Info */}
+            <div className="flex-col inline-flex gap-4">
+              <h3 className="text-2xl font-black">
                 {project.title}
               </h3>
-              <p className="text-[#71717A] text-base font-normal leading-7">
+              <p className="text-base text-muted-foreground">
                 {project.description}
               </p>
-              <button className="flex items-center gap-2 text-[#E72B2D] text-sm font-medium leading-6">
-                Read more
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
+              <Button
+                variant="default"
+                className="w-fit px-3 py-2 inline-flex justify-center items-center gap-1"
+                size="lg"
+              >
+                <span className="px-1">Read more</span>
+                <ArrowUpRight className="w-4 h-4" /> {/* Replace with your desired icon */}
+              </Button>
             </div>
           </div>
         ))}
       </div>
+
     </section>
-  )
+  );
+};
+
+const sampleProjects = [
+  {
+    title: "Project Support Services",
+    description: "Comprehensive project support including field services, operators & technicians, transport, installation & commissioning.",
+    image: "/project-1.jpg",
+  },
+  {
+    title: "Testing & Certifications​",
+    description: "Ensure peace of mind with calibration, function testing, lifting & MPI testing and certification services.",
+    image: "/project-2.jpg",
+  },
+  {
+    title: "Maintenance Services",
+    description: "Minimize downtime and reduce costs with preventative maintenance, servicing and refurbishment.",
+    image: "/project-3.jpg",
+  },
+];
+
+export default function App() {
+  return <ProjectsSection projects={sampleProjects} />;
 }

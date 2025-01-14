@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 export default function Footer() {
   return (
     <footer className="py-8 md:py-16 w-full">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="max-w-screen-2xl mx-auto px-6">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="w-[160px] md:w-[217px] h-[45px] relative">
@@ -29,9 +29,8 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               Access Group Middle East offers top-quality forklifts and material handling solutions from trusted brands like UN, Manitou, JCB, Merlo, and Kalmar.
             </p>
-            <div className="flex items-center">
               {/* Certification Images */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-row gap-4">
                 {[
                   { src: '/cert-1.svg', alt: 'Certification Level 1', width: 60, height: 57 },
                   { src: '/cert-2.png', alt: 'Certification Level 2', width: 65, height: 62 },
@@ -49,7 +48,7 @@ export default function Footer() {
                   </div>
                 ))}
               </div>
-            </div>
+              
           </div>
 
           {/* Navigation Columns */}

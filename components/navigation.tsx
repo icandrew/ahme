@@ -17,8 +17,8 @@ import { Button } from "@/components/ui/button"
 
 export default function Navigation() {
   return (
-    <header className="w-full bg-primary">
-      <div className="max-w-screen-2xl mx-auto flex h-20 items-center justify-between px-8">
+    <header className="w-full bg-primary relative">
+      <div className="max-w-screen-2xl mx-auto flex h-20 items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="w-48 md:w-56 lg:w-64">
           <Image 

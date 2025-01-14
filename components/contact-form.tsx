@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import * as React from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import Image from "next/image"
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import Image from "next/image";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,16 +14,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -35,7 +35,7 @@ const formSchema = z.object({
   projectLocation: z.string().optional(),
   branch: z.string().min(1, "Branch is required"),
   enquiryMessage: z.string().optional(),
-})
+});
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -51,15 +51,15 @@ export default function ContactForm() {
       branch: "",
       enquiryMessage: "",
     },
-  })
+  });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // Handle form submission here
-    console.log(values)
+    console.log(values);
   }
 
   return (
-    <div className="relative py-16 flex flex-col justify-center items-center overflow-hidden px-4">
+    <div className="relative py-20 flex flex-col items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -69,25 +69,26 @@ export default function ContactForm() {
           className="object-cover"
           priority
         />
-        {/* Overlay */}
-        <div className="absolute inset-0" />
       </div>
 
-      <div className="relative z-10 w-full max-w-screen-2xl p-10 bg-white/95 backdrop-blur-sm rounded-md flex flex-col lg:flex-row justify-start items-start gap-16">
-        <div className="w-full lg:w-[448px] flex flex-col justify-start items-start gap-4">
-          <h1 className="text-primary text-4xl font-black font-['Lato'] leading-10">
+      <div className="relative w-full max-w-screen-2xl mx-auto px-6 lg:px-12 py-12 bg-background backdrop-blur-md rounded-lg flex flex-col lg:flex-row items-start gap-12">
+        {/* Header Section */}
+        <div className="flex flex-col gap-4">
+          <h1 className="text-primary text-4xl font-extrabold">
             Ready to Assist with Your Project
           </h1>
-          <p className="text-muted-foreground text-base font-['Roboto'] leading-7">
-            Our expert team is here to provide tailored solutions for your projects unique needs.
+          <p className="text-muted-foreground text-base leading-7">
+            Our expert team is here to provide tailored solutions for your
+            project’s unique needs.
           </p>
         </div>
-        
-        <div className="w-full lg:flex-1">
+
+        {/* Form Section */}
+        <div className="w-full">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              {/* First Name and Last Name Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* Name Fields */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
                   control={form.control}
                   name="firstName"
@@ -116,8 +117,8 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Mobile Phone and Email Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Contact Fields */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
                   control={form.control}
                   name="mobilePhone"
@@ -146,8 +147,8 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Company Name and Industry Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Company Fields */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
                   control={form.control}
                   name="companyName"
@@ -167,7 +168,10 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Industry</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select" />
@@ -175,7 +179,9 @@ export default function ContactForm() {
                         </FormControl>
                         <SelectContent>
                           <SelectItem value="technology">Technology</SelectItem>
-                          <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                          <SelectItem value="manufacturing">
+                            Manufacturing
+                          </SelectItem>
                           <SelectItem value="healthcare">Healthcare</SelectItem>
                           <SelectItem value="retail">Retail</SelectItem>
                         </SelectContent>
@@ -186,8 +192,8 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Project Location and Branch Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Location and Branch */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
                   control={form.control}
                   name="projectLocation"
@@ -207,7 +213,10 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Branch *</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select" />
@@ -225,7 +234,7 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Enquiry Message Field */}
+              {/* Enquiry Message */}
               <FormField
                 control={form.control}
                 name="enquiryMessage"
@@ -233,10 +242,10 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Enquiry Message</FormLabel>
                     <FormControl>
-                      <Textarea 
-                        placeholder="Type your message here." 
-                        className="h-20 resize-none"
-                        {...field} 
+                      <Textarea
+                        placeholder="Type your message here."
+                        className="h-24 resize-none"
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
@@ -245,7 +254,7 @@ export default function ContactForm() {
               />
 
               {/* Submit Button */}
-              <Button type="submit" className="w-[100px]">
+              <Button type="submit" size="lg">
                 Submit
               </Button>
             </form>
@@ -253,6 +262,5 @@ export default function ContactForm() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

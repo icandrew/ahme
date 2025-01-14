@@ -44,7 +44,7 @@ function AnimatedCounter({ end, label }: { end: number, label: string }) {
           {count}
           {end >= 1000 ? "k" : ""}+
         </div>
-        <div className="w-[30px] h-[2px] bg-[#E72B2D]"></div>
+        <div className="bg-primary"></div>
         <div className="self-stretch text-[#71717A] text-lg font-normal leading-6 whitespace-pre-line">
           {label}
         </div>
@@ -55,14 +55,14 @@ function AnimatedCounter({ end, label }: { end: number, label: string }) {
 
 export default function StatsSection() {
   return (
-    <section className="bg-zinc-100 py-10 px-4 lg:px-6">
-      <div className="relative py-16 max-w-screen-2xl mx-auto lg:px-10">
+    <section className="bg-zinc-100">
+      <div className="relative py-16 max-w-screen-2xl mx-auto px-6 lg:px-6">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           {/* Left Section */}
           <div className="space-y-4 max-w-xl">
             <div className="text-sm text-muted-foreground">About Us</div>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900">Local Experience - Global Reach</h2>
-            <p className="text-gray-700 text-base sm:text-lg">
+            <p className="text-muted-foreground text-base sm:text-lg">
               Access Hire Middle East operates globally with offices in the UAE, Saudi Arabia, Kazakhstan,
               South Africa, USA, UK, China, and Australia, strategically positioned to support energy
               projects in any location or environment.
