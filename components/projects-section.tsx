@@ -5,7 +5,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
-const ProjectsSection = ({ projects = [] }) => {
+// Define the interface for a project
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+}
+
+// Define props interface for the ProjectsSection component
+interface ProjectsSectionProps {
+  projects: Project[];
+}
+
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
   return (
     <section className="py-16 flex flex-col items-center gap-10 max-w-screen-2xl mx-auto px-6 lg:px-6">
       {/* Header Section */}
@@ -23,7 +35,6 @@ const ProjectsSection = ({ projects = [] }) => {
         >
           <span className="px-1">View all projects</span>
         </Button>
-                
       </header>
 
       {/* Map Section */}
@@ -70,25 +81,24 @@ const ProjectsSection = ({ projects = [] }) => {
                 size="lg"
               >
                 <span className="px-1">Read more</span>
-                <ArrowUpRight className="w-4 h-4" /> {/* Replace with your desired icon */}
+                <ArrowUpRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
         ))}
       </div>
-
     </section>
   );
 };
 
-const sampleProjects = [
+const sampleProjects: Project[] = [
   {
     title: "Project Support Services",
     description: "Comprehensive project support including field services, operators & technicians, transport, installation & commissioning.",
     image: "/project-1.jpg",
   },
   {
-    title: "Testing & Certifications​",
+    title: "Testing & Certifications",
     description: "Ensure peace of mind with calibration, function testing, lifting & MPI testing and certification services.",
     image: "/project-2.jpg",
   },
