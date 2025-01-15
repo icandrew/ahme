@@ -9,79 +9,78 @@ interface Product {
   href: string
 }
 
-const PRODUCTS: Product[] = [
+const PRODUCTS = [
   {
     title: "Nitrogen Generators",
     image: "/product-1.png",
     alt: "Industrial nitrogen generator unit",
-    href: "#"
+    href: "/products/nitrogen-generators"
   },
   {
     title: "Air Compressors",
     image: "/product-2.jpg",
     alt: "Portable air compressor unit",
-    href: "#"
+    href: "/products/air-compressors"
   },
   {
     title: "Fuel Tanks",
     image: "/product-3.jpg",
     alt: "Fuel tank containment system",
-    href: "#"
+    href: "/products/fuel-tanks"
   },
   {
     title: "Generators",
     image: "/product-4.jpg",
     alt: "Stationary power generator unit",
-    href: "#"
+    href: "/products/generators"
   },
   {
     title: "Lighting Towers",
     image: "/product-5.jpg",
     alt: "Mobile lighting tower",
-    href: "#"
+    href: "/products/lighting-towers"
   },
   {
     title: "Welding",
     image: "/product-6.jpg",
-    alt: "Industrial HVAC unit",
-    href: "#"
+    alt: "Industrial welding equipment",
+    href: "/products/welding"
   },
   {
     title: "DNV 2.7 - 1 Frames",
     image: "/product-7.jpg",
-    alt: "Professional welding equipment",
-    href: "#"
+    alt: "DNV certified frames",
+    href: "/products/dnv-frames"
   },
   {
     title: "Desiccant Air Dryers",
     image: "/product-8.jpg",
-    alt: "Material handling equipment",
-    href: "#"
+    alt: "Industrial air drying systems",
+    href: "/products/air-dryers"
   }
 ] as const
 
 const ProductCard: FC<Product> = ({ title, image, alt, href }) => (
-  <Link 
+  <Link
     href={href}
-    className="group block"
+    className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
   >
     <div className="flex flex-col">
-      <div className="relative overflow-hidden rounded-lg border transition-colors duration-200 ease-in-out group-hover:bg-gray-200 sm:px-6">
-        <div className="p-4 sm:p-5 lg:p-6">
+      <div className="relative overflow-hidden rounded-lg border bg-white transition-colors duration-200 ease-in-out group-hover:bg-zinc-100">
+        <div className="p-4 sm:p-6">
           <div className="relative aspect-square w-full">
             <Image
               src={image}
               alt={alt}
               fill
-              priority={false}
-              className="object-contain p-2 sm:p-6 lg:p-6 mix-blend-darken transition-transform duration-200 ease-in-out group-hover:scale-105"
-              sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-              quality={90}
+              className="object-contain p-2 sm:p-6 mix-blend-darken transition-transform duration-200 ease-in-out group-hover:scale-105"
+              sizes="(min-width: 1536px) 384px, (min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              quality={85}
             />
           </div>
         </div>
       </div>
-      <h2 className="mt-3 sm:mt-6 text-lg font-black text-foreground sm:text-xl">
+      <h2 className="mt-4 text-lg font-bold text-gray-900 group-hover:text-gray-700">
         {title}
       </h2>
     </div>
@@ -90,25 +89,26 @@ const ProductCard: FC<Product> = ({ title, image, alt, href }) => (
 
 export default function ProductShowcase() {
   return (
-    <section className="bg-background">
-      <div className="relative mx-auto max-w-screen-2xl px-6 sm:px-6 lg:px-6">
-        <div className="py-8 sm:py-12 md:py-16">
-          <header className="space-y-2 sm:space-y-3 md:max-w-2xl lg:max-w-xl">
-            <p className="text-sm font-medium text-muted-foreground">Products</p>
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
-              Comprehensive Equipment<br className="hidden sm:inline" />
-              Solutions for Every Project
-            </h1>
-          </header>
-          
-          <div className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {PRODUCTS.map((product) => (
-              <ProductCard 
-                key={product.title} 
-                {...product} 
-              />
-            ))}
-          </div>
+    <section className="bg-background py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+        <div className="sm:text-center lg:text-left">
+          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            Products
+          </p>
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-4xl">
+            Comprehensive Equipment
+            <br className="hidden sm:inline" />
+            Solutions for Every Project
+          </h1>
+        </div>
+
+        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:mt-12 sm:gap-x-6 md:grid-cols-3 lg:mt-16 lg:grid-cols-4 lg:gap-x-8">
+          {PRODUCTS.map((product) => (
+            <ProductCard
+              key={product.title}
+              {...product}
+            />
+          ))}
         </div>
       </div>
     </section>

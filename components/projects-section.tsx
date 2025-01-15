@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Link from 'next/link'
 import { ArrowUpRight } from "lucide-react";
 
 // Define the interface for a project
@@ -23,17 +24,24 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
       {/* Header Section */}
       <header className="h-fit flex flex-col items-center gap-6 text-center">
         <div className="flex flex-col items-center gap-1.5">
-          <p className="text-sm font-medium text-muted-foreground">Projects</p>
-          <h2 className="max-w-xl text-4xl font-black tracking-tight sm:text-4xl md:text-4xl">
-            Trusted by Leading Multinational Companies Worldwide
-          </h2>
+          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            Projects
+          </p>
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-4xl">
+            Trusted by Leading Multinational
+            <br className="hidden sm:inline" />
+            Companies Worldwide
+          </h1>
         </div>
         <Button
           variant="default"
-          className="w-fit px-3 py-2 inline-flex justify-center items-center gap-1"
           size="lg"
+          asChild
+          className="w-fit"
         >
-          <span className="px-1">View all projects</span>
+          <Link href="#">
+            View all projects
+          </Link>
         </Button>
       </header>
 
@@ -68,20 +76,25 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
             </Card>
 
             {/* Project Info */}
-            <div className="flex-col inline-flex gap-4">
-              <h3 className="text-2xl font-black">
-                {project.title}
-              </h3>
-              <p className="text-base text-muted-foreground">
-                {project.description}
-              </p>
+            <div className="flex-col inline-flex space-y-5">
+              <div>
+                <h3 className="text-xl font-extrabold tracking-tight text-foreground sm:text-2xl lg:text-2xl">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-base sm:text-lg mt-4">
+                  {project.description}
+                </p>
+              </div>
               <Button
                 variant="default"
-                className="w-fit px-3 py-2 inline-flex justify-center items-center gap-1"
                 size="lg"
+                asChild
+                className="w-fit"
               >
-                <span className="px-1">Read more</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <Link href="#">
+                  Read more
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
               </Button>
             </div>
           </div>
@@ -94,7 +107,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
 const sampleProjects: Project[] = [
   {
     title: "Project Support Services",
-    description: "Comprehensive project support including field services, operators & technicians, transport, installation & commissioning.",
+    description: "Comprehensive support: field services, operators, technicians, transport, installation, and commissioning.",
     image: "/project-1.jpg",
   },
   {

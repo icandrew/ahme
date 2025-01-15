@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -16,16 +17,22 @@ export default function HeroSection() {
 
       {/* Content */}
       <section className="relative">
-        <div className="mx-auto max-w-screen-2xl px-6">
-          <div className="flex flex-col justify-center h-full">
-            <h1 className="mb-8 text-4xl font-black leading-tight text-white">
-              Global rental solutions for your next energy project
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-6">
+          <div className="flex flex-col justify-center h-full gap-4 ">
+            <h1 className="text-2xl font-extrabold text-background sm:text-4xl lg:text-4xl">
+              Global rental solutions for
+              <br className="hidden sm:inline" />
+              your next energy project
             </h1>
-            <Button 
-              size="lg" 
-              className="w-fit bg-primary text-white hover:bg-red-700"
+            <Button
+              variant="default"
+              size="lg"
+              asChild
+              className="w-fit"
             >
-              Request a quote
+              <Link href="#">
+                Request a quote
+              </Link>
             </Button>
           </div>
         </div>

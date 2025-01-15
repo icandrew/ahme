@@ -24,6 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -74,12 +75,11 @@ export default function ContactForm() {
       <div className="relative w-full max-w-screen-2xl mx-auto px-6 lg:px-12 py-12 bg-background backdrop-blur-md rounded-lg flex flex-col lg:flex-row items-start gap-12">
         {/* Header Section */}
         <div className="flex flex-col gap-4">
-          <h1 className="text-primary text-4xl font-extrabold">
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-4xl">
             Ready to Assist with Your Project
           </h1>
-          <p className="text-muted-foreground text-base leading-7">
-            Our expert team is here to provide tailored solutions for your
-            project’s unique needs.
+          <p className="text-muted-foreground text-base sm:text-lg mt-4">
+            Our expert team is here to provide tailored solutions for your project’s unique needs.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function ContactForm() {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               {/* Name Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
                   name="firstName"
@@ -118,7 +118,7 @@ export default function ContactForm() {
               </div>
 
               {/* Contact Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
                   name="mobilePhone"
@@ -148,7 +148,7 @@ export default function ContactForm() {
               </div>
 
               {/* Company Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
                   name="companyName"
@@ -193,7 +193,7 @@ export default function ContactForm() {
               </div>
 
               {/* Location and Branch */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
                   name="projectLocation"
@@ -254,8 +254,15 @@ export default function ContactForm() {
               />
 
               {/* Submit Button */}
-              <Button type="submit" size="lg">
-                Submit
+              <Button
+                variant="default"
+                size="lg"
+                asChild
+                className="w-fit"
+              >
+                <Link href="#">
+                  Submit
+                </Link>
               </Button>
             </form>
           </Form>

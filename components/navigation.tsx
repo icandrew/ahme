@@ -31,7 +31,7 @@ export default function Navigation() {
 
   return (
     <header className="w-full bg-primary relative">
-      <div className="max-w-screen-2xl mx-auto flex h-20 items-center justify-between px-6">
+      <div className="max-w-screen-2xl mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="w-48 md:w-56 lg:w-64">
           <Image
@@ -164,10 +164,15 @@ export default function Navigation() {
         </NavigationMenu>
 
         {/* Phone Number */}
-        <Button variant="secondary" size="lg" className="hidden lg:flex text-primary">
-          <Link href="tel:+97148841118" className="flex items-center gap-2">
-            <Phone className="h-5 w-5" />
-            +971 4 884 1118
+        <Button
+          variant="default"
+          size="lg"
+          asChild
+          className="w-fit hidden lg:flex items-center gap-2 px-4 py-2 bg-white text-primary hover:bg-gray-100"
+        >
+          <Link href="#">
+            <Phone className="h-4 w-4" />
+            +971 4884 1118
           </Link>
         </Button>
 
@@ -273,14 +278,6 @@ export default function Navigation() {
               <Link href="/contact" className="py-4 text-lg font-semibold" onClick={() => setIsOpen(false)}>
                 Contact Us
               </Link>
-              <div className="mt-auto pb-4">
-                <Button variant="default" size="lg" className="w-full">
-                  <Link href="tel:+97148841118" className="flex items-center justify-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    +971 4 884 1118
-                  </Link>
-                </Button>
-              </div>
             </nav>
           </SheetContent>
         </Sheet>
