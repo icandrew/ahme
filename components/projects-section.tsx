@@ -28,9 +28,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
             Projects
           </p>
           <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-4xl">
-            Trusted by Leading Multinational
-            <br className="hidden sm:inline" />
-            Companies Worldwide
+            Trusted by Leading Multinational<br /> Companies Worldwide
           </h1>
         </div>
         <Button
