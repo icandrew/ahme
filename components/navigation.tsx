@@ -279,6 +279,19 @@ export default function Navigation() {
                 Contact Us
               </Link>
             </nav>
+            <div className="mt-auto pt-4 border-t">
+              <Button
+                size="lg"
+                asChild
+                className="w-full flex items-center justify-center gap-2"
+              >
+                <Link href="#">
+                  <Phone className="h-4 w-4" />
+                  +971 4884 1118
+                </Link>
+              </Button>
+            </div>
+            
           </SheetContent>
         </Sheet>
       </div>
