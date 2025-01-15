@@ -90,12 +90,12 @@ const ProductCard: FC<Product> = ({ title, image, alt, href }) => (
 export default function ProductShowcase() {
   return (
     <section className="bg-background py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-2xl px-6 sm:px-6 lg:px-8">
         <div className="sm:text-center lg:text-left">
           <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             Products
           </p>
-          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-4xl">
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-4xl">
             Comprehensive Equipment
             <br className="hidden sm:inline" />
             Solutions for Every Project
